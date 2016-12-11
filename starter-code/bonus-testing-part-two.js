@@ -41,7 +41,12 @@ function testIsNumber() {
      additional points, so long as you write code that passes those
      tests.
      NOTE: All test functions must begin with the word 'test' */
-
+function testValidDay() { // assuming humans start counting days at Day 1
+  assert((tooHungryDay > 0) && (tooHungryday < 11),
+    'The lion is too hungry after ' + tooHungryDay + ' days',
+    'tooHungryDay = ' + tooHungryDay + ', which is outside of the number of days available'
+  );
+};
 
   /* Complete this TODO ONLY when done writing tests AND
   commiting your work:
@@ -59,3 +64,4 @@ function testIsNumber() {
 
 
 testIsNumber();
+testValidDay();
