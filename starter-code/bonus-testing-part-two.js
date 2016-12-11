@@ -33,7 +33,7 @@ function testIsNumber() {
   );
 }
 
-  /* TODO:
+  /* TODONE:
      Write (AT LEAST) ONE more function that calls assert to test
      whether tooHungryDay falls within an acceptable answer
      based on the number of days available in the array. If you
@@ -41,9 +41,14 @@ function testIsNumber() {
      additional points, so long as you write code that passes those
      tests.
      NOTE: All test functions must begin with the word 'test' */
+function testValidDay() { // assuming humans start counting days at Day 1
+  assert((tooHungryDay > 0) && (tooHungryDay < 11),
+    'The lion is too hungry after ' + tooHungryDay + ' days',
+    'tooHungryDay = ' + tooHungryDay + ', which is outside of the number of days available'
+  );
+};
 
-
-  /* Complete this TODO ONLY when done writing tests AND
+  /* Complete this TODONE ONLY when done writing tests AND
   commiting your work:
 
    Cycle through the days in mealsPerDay. Log the cumulative average
@@ -55,7 +60,19 @@ function testIsNumber() {
    When ready, execute this program in your terminal with node
    (node bonus-testing-part-two)  :-)
   */
-
-
+/* I originally had .reduce() but I couldn't figure out how to stop on the first
+  day the average fell below 4 within the callback function */
+console.log("Cumulative average each day:")
+var average = mealsPerDay[0];
+for (var i = 0; i < mealsPerDay.length-1; i++){
+  var temp = (average+mealsPerDay[i+1])/2;
+  console.log("Day " + (i+1) + ": " + temp);
+  if (temp < 4) {
+    tooHungryDay = i+1;
+    break;
+  }
+  average = temp;
+}
 
 testIsNumber();
+testValidDay();
