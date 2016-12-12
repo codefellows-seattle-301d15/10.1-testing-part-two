@@ -41,7 +41,10 @@ function testIsNumber() {
      additional points, so long as you write code that passes those
      tests.
      NOTE: All test functions must begin with the word 'test' */
-
+function testDay() {
+  assert((hungryDay > 0) && (hungryDay < 11),
+  'The lion is hungry after ' + hungryDay + ' days', 'hungryDay = ' + hungryDay + ', which more than the days available.');
+};
 
   /* Complete this TODO ONLY when done writing tests AND
   commiting your work:
@@ -55,7 +58,18 @@ function testIsNumber() {
    When ready, execute this program in your terminal with node
    (node bonus-testing-part-two)  :-)
   */
-
+console.log('Cumulative average each day: ');
+var avg = mealsPerDay[0];
+for (var i = 0; i < mealsPerDay.length - 1; i++) {
+  var num = (avg + mealsPerDay[i + 1]) / 2;
+  console.log('Day ' + (i + 1) + ': ' + num);
+  if (num <  4) {
+    hungryDay = i + 1;
+    break;
+  }
+  avg = num;
+}
 
 
 testIsNumber();
+testDay();
